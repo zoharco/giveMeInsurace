@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "giveMeInsurace-client"
+		},
+		{
+			"path": "giveMeInsurace-server"
+		}
+	],
+    "settings": {}
+}
