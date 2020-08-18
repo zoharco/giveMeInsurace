@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RadioButtonControlComponent implements OnInit {
     @Input() inputValue:string;
+    @Input() labelValue:string;
+    @Input() isChecked:boolean;
     constructor() { }
 
     ngOnInit(): void {

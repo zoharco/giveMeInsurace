@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str; 
 
 class DatabaseSeeder extends Seeder
 {
@@ -9,8 +11,9 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+    
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        factory(App\Car::class, 50)->create();
     }
 }

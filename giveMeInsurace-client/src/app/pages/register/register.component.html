@@ -2,30 +2,42 @@
   <!---->
   <mat-card fxFlex="25">
     <mat-toolbar color="primary">הרשמה למערכת</mat-toolbar>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" fxLayoutAlign="stretch" fxLayout="column" class="login-form">
-      <mat-form-field>
-        <!-- <mat-label>שם מלא</mat-label> -->
-        <input matInput type="name" placeholder="שם מלא" formControlName="name" name="name">
-      </mat-form-field>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" fxLayoutAlign="stretch" fxLayout="column"
+      class="register-form">
+      <div class="register-form-item">
+        <mat-form-field>
+          <label>שם מלא</label>
+          <input matInput type="name" formControlName="name" name="name">
+        </mat-form-field>
+      </div>
 
-      <mat-form-field>
-        <!-- <mat-label>דוא"ל</mat-label> -->
-        <input matInput type="email" placeholder="דואר אלקטרוני" formControlName="email" name="email">
-      </mat-form-field>
+      <div class="register-form-item">
+        <mat-form-field>
+          <label>דוא"ל</label>
+          <input matInput type="email" formControlName="email" name="email">
+        </mat-form-field>
+      </div>
 
-      <mat-form-field>
-        <!-- <mat-label>סיסמא</mat-label> -->
-        <input matInput type="password" placeholder="סיסמא" formControlName="password" name="password">
-      </mat-form-field>
+      <div class="register-form-item">
+        <mat-form-field>
+          <label>סיסמא</label>
+          <input matInput type="password" formControlName="password" name="password">
+        </mat-form-field>
+      </div>
 
-      <mat-form-field>
-        <!-- <mat-label>אימות סיסמא</mat-label> -->
-        <input matInput type="password" placeholder="אימות סיסמא" formControlName="password_confirmation" name="password_confirmation" id="password_confirmation">
-      </mat-form-field>
+      <div class="register-form-item">
+        <mat-form-field>
+          <label>אימות סיסמא</label>
+          <input matInput type="password" formControlName="password_confirmation" name="password_confirmation"
+            id="password_confirmation">
+        </mat-form-field>
+      </div>
 
-      <div>
+
+
+      <div class="register-form-buttons">
         <button mat-raised-button type="submit" [disabled]="!registerForm.valid">הרשם</button>
-        <a routerLink="/login">התחבר</a>
+        <a routerLink="/login">להתחברות</a>
       </div>
     </form>
 

@@ -1,7 +1,24 @@
-.mat-cardWrap { margin: 20px; }
-.home-car-serach-offers{}
-.home-car-serach-offers_emptyCard{}
-.home-car-serach-offers_btn{}
+.home-car-item { width: 85%; margin: 20px auto; }
+.home-car-serachOffersBtn-wrap { display:flex; justify-content:space-between;}
+.home-car_emptyCard{width: 70%; height: 20px;}
+.home-car-serachOffersBtn{ 
+    display:inline-block; 
+    width: 180px; 
+    font-size: 24px;
+    text-decoration: none;
+    padding: 10px 30px;
+    color: #ffffff;
+    background-color: #03a9f4;border-radius: 25px;
+}
+.home-car-serachOffersBtn-icon{ float: left; margin-top: 4px;}
 .mat-card_w1 { width: 100%; }
 .mat-card_w2 { width: fit-content;  }
-.mat-card_empty { width: 80%; height:20px; }
+
+.home-car-search-form {display: flex; }
+.home-car-search-form-item{ margin-right:10px; }
+.home-car-search-form-item:first-child{ width:40%; margin-right: 0; }
+.home-car-search-form-item label { display: block; margin-bottom: 10px; } 
+.home-car-search-form-item-radioBtn { width:120px; }
+
+
+.home-car-search-form-item-btnSearch { color: #03a9f4; }

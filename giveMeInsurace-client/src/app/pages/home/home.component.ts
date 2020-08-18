@@ -1,35 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-export interface Tile {
-    color: string;
-    cols: number;
-    rows: number;
-    text: string;
-  }
-  
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CarsService } from 'src/app/shared/services/cars.service';
+import { ICar } from 'src/app/shared/models/car.model';
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    tiles: Tile[] = [
-        {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-        {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-        {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-        {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-      ];
+    /* cars number
+        2089204, 2078010, 2078011, 2078016, 2079554, 2018052
+        2078012, 2078015, 2078013, 2079695, 2089204 
+    */
+    searchCarForm: FormGroup;
+    car: ICar;
 
 
+    constructor(private fb: FormBuilder,
+        private carData: CarsService) { }
 
+    ngOnInit(): void {
+        this.searchCarForm = this.fb.group({
+            carNumber: ['', [Validators.required, Validators.minLength(6)]]
+        });
+    }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  searchCar(event: MouseEvent){
-    event.preventDefault();
-    
-  }
+    onSubmit($event) {
+        const cardNumber = this.searchCarForm.value['carNumber'];
+        this.carData.getCar(cardNumber).subscribe(carD => this.car = carD);
+    }
 
 }

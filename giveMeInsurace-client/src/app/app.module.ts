@@ -25,6 +25,8 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -53,9 +55,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatCardModule,
     FlexLayoutModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [
+      
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

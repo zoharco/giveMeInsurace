@@ -1,1 +1,72 @@
-<p>car-details works!</p>
+<div class="car-details">
+  <form [formGroup]="carDetailsForm" class="car-details-form" (ngSubmit)="onSubmit()">
+    <div class="car-details-form-item">
+      <mat-form-field>
+        <label>מספר דגם לוי יצחק</label>
+        <input matInput type="text" formControlName="modelCode" name="modelCode">
+      </mat-form-field>
+    </div>
+
+    <div class="car-details-form-item">
+      <mat-form-field>
+        <label>שנת ייצור</label>
+        <input matInput type="text" formControlName="year" name="year">
+      </mat-form-field>
+    </div>
+
+    <div class="car-details-form-item">
+      <mat-form-field>
+        <label>תיאור הדגם</label>
+        <input matInput type="text" formControlName="description" name="description">
+      </mat-form-field>
+    </div>
+
+    <div class="car-details-form-item">
+      <mat-form-field>
+        <label>תאריך עלייה לכביש</label>
+        <input matInput type="text" formControlName="road_ascent_date" name="road_ascent_date">
+      </mat-form-field>
+    </div>
+
+    <div class="car-details-form-item">
+      <label>גיר</label>
+      <mat-radio-group formControlName="gear_type">
+        <mat-radio-button class="car-details-form-item-radioBtn" name="gear_type" value="1">אוטומטי</mat-radio-button>
+        <mat-radio-button class="car-details-form-item-radioBtn" name="gear_type" value="0">ידני</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="car-details-form-item">
+      <mat-form-field>
+        <label>כריות אוויר</label>
+        <input matInput type="text" formControlName="air_bags" name="air_bags">
+      </mat-form-field>
+    </div>
+
+    <div class="car-details-form-item">
+      <label>מערכת בקרת יציבות (ESP)</label>
+      <mat-radio-group formControlName="esp">
+        <mat-radio-button class="car-details-form-item-radioBtn" name="esp" value="1">כן</mat-radio-button>
+        <mat-radio-button class="car-details-form-item-radioBtn" name="esp" value="0">לא</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+
+    <div class="car-details-form-item">
+      <label>מערכת LDW, התראה על סטייה מנתיב</label>
+      <mat-radio-group formControlName="ldw">
+        <mat-radio-button class="car-details-form-item-radioBtn" name="ldw" value="1">כן</mat-radio-button>
+        <mat-radio-button class="car-details-form-item-radioBtn" name="ldw" value="0">לא</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="car-details-form-item">
+      <label>מערכת FCW, התראת אי שמירת מרחק</label>
+      <mat-radio-group formControlName="fcw">
+        <mat-radio-button class="car-details-form-item-radioBtn" name="fcw" value="1">כן</mat-radio-button>
+        <mat-radio-button class="car-details-form-item-radioBtn" name="fcw" value="0">לא</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+  </form>
+</div>

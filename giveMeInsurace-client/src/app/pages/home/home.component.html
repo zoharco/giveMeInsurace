@@ -1,32 +1,46 @@
-<div class="home-car-serach-offers">
-  <mat-card class="home-car-serach-offers_emptyCard">
-    סתם ריבוע לבן
-  </mat-card>
-  <a class="home-car-serach-offers_btn" href="" fxflex="20">קבלת הצעות</a>
+<div class="home-car-item home-car-serachOffersBtn-wrap">
+  <mat-card class="home-car_emptyCard"></mat-card>
+  <a class="home-car-serachOffersBtn" href="">
+    <span>
+      קבלת הצעות
+    </span>
+    <mat-icon class="home-car-serachOffersBtn-icon" aria-hidden="false" color="white" aria-label="Example thumbs up SVG icon">arrow_back</mat-icon>
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="25px" height="25px">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z" />
+    </svg> -->
+  </a>
 </div>
 
 
-<div class="mat-cardWrap">
-  <mat-card>
+<div class="home-car-item">
+  <mat-card class="home-car-search">
     <h1>פרטי הרכב</h1>
+    <form [formGroup]="searchCarForm" (ngSubmit)="onSubmit($event)" class="home-car-search-form">
+        <div class="home-car-search-form-item">
+            <label>אתר רכב לפי:</label>
+            <mat-radio-button class="home-car-search-form-item-radioBtn" [checked]="true">מספר רכב</mat-radio-button>
+          
+        </div>
+        <div class="home-car-search-form-item">
+            <mat-form-field>
+                <label>הזן מספר רכב</label>
+                <input matInput type="number" formControlName="carNumber" name="carNumber">
+            </mat-form-field>
+        </div>
+        <div class="home-car-search-form-item">
+            <button Returns="home-car-search-form-item-btnSearch" mat-flat-button type="submit" class="btn">
+                <mat-icon class="home-car-search-form-item-btnSearch-icon" aria-hidden="false" color="" aria-label="Example thumbs up SVG icon">arrow_back</mat-icon>
+                איתור רכב
 
-    <div>
-      <h2>אתר רכב לפי:</h2>
-      <app-radio-button-control></app-radio-button-control>
-    </div>
-
-    <div>
-      <h2>הזן מספר רכב</h2>
-    </div>
-
-    <div>
-      <a href="#" (click)="searchCar($event)" class="btn">איתור רכב</a>
-    </div>
+            </button>
+        </div>
+    </form>
   </mat-card>
 </div>
 
-<div class="mat-cardWrap">
+<div class="home-car-item">
   <mat-card>
-    <app-car-details></app-car-details>
+    <app-car-details [carDetails]="car"></app-car-details>
   </mat-card>
 </div>
