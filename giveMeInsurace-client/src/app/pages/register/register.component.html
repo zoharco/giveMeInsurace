@@ -1,0 +1,111 @@
+<div fxLayoutAlign="center center" class="main-div" fxFlexFill>
+  <!---->
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">הרשמה למערכת</mat-toolbar>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+      <mat-form-field>
+        <!-- <mat-label>שם מלא</mat-label> -->
+        <input matInput type="name" placeholder="שם מלא" formControlName="name" name="name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <!-- <mat-label>דוא"ל</mat-label> -->
+        <input matInput type="email" placeholder="דואר אלקטרוני" formControlName="email" name="email">
+      </mat-form-field>
+
+      <mat-form-field>
+        <!-- <mat-label>סיסמא</mat-label> -->
+        <input matInput type="password" placeholder="סיסמא" formControlName="password" name="password">
+      </mat-form-field>
+
+      <mat-form-field>
+        <!-- <mat-label>אימות סיסמא</mat-label> -->
+        <input matInput type="password" placeholder="אימות סיסמא" formControlName="password_confirmation" name="password_confirmation" id="password_confirmation">
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button type="submit" [disabled]="!registerForm.valid">הרשם</button>
+        <a routerLink="/login">התחבר</a>
+      </div>
+    </form>
+
+  </mat-card>
+</div>
+
+
+<!-- 
+<div class="mt-4 col-8 offset-2">
+  <div class="card">
+    <div class="card-header">Create an account</div>
+    <div class="card-body">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label for="name" class="col-sm-3 col-form-label">Full Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" formControlName="name" id="name">
+            <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+              Please enter your full name.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="email" class="col-sm-3 col-form-label">Email</label>
+          <div class="col-sm-9">
+            <input type="email" class="form-control" formControlName="email" id="email">
+            <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+              <div *ngIf="email.errors.required">
+                Please enter your email address.
+              </div>
+              <div *ngIf="email.errors.email">
+                Something's wrong with your email address. Please try again.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="password" class="col-sm-3 col-form-label">Password</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" formControlName="password" id="password">
+            <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+              <div *ngIf="password.errors.required">
+                Please enter a password.
+              </div>
+              <div *ngIf="password.errors.minlength">
+                Please make your password of at least 8 characters.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="password_confirmation" class="col-sm-3 col-form-label">Confirm Password</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" appConfirmEqualValidator="password"
+              formControlName="password_confirmation" id="password_confirmation">
+            <div class="alert alert-danger"
+              *ngIf="password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched)">
+              <div *ngIf="password_confirmation.errors.required">
+                Please enter a password.
+              </div>
+              <div *ngIf="password_confirmation.errors.minlength">
+                Please make your password of at least 8 characters.
+              </div>
+              <div *ngIf="password_confirmation.errors.notEqual">
+                Please make shure your password is confiremd.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-9 offset-3">
+            <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Create account</button>
+
+            <a routerLink="/login" class="btn btn-info float-right">Log in</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->

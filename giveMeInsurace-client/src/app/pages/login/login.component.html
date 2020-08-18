@@ -1,0 +1,26 @@
+<div fxLayoutAlign="center center" class="main-div" fxFlexFill>
+  <!---->
+  <mat-card fxFlex="30">
+    <mat-toolbar color="primary"><h1>התחברות למערכת</h1></mat-toolbar>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+      <div [hidden]="!error">{{ error }}</div>
+
+      <mat-form-field >
+        <mat-label>דואר אלקטרוני</mat-label>
+        <input matInput  type="email" formControlName="email" name="email">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>סיסמא</mat-label>
+        <input matInput type="password" formControlName="password" name="password">
+      </mat-form-field>
+      
+      <div>
+        <button mat-raised-button type="submit" [disabled]="!loginForm.valid">התחבר</button>
+        <a routerLink="/register" >הרשם</a>
+      </div>
+    </form>
+
+  </mat-card>
+</div>
+

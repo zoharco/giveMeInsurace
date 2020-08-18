@@ -1,0 +1,32 @@
+<div class="home-car-serach-offers">
+  <mat-card class="home-car-serach-offers_emptyCard">
+    סתם ריבוע לבן
+  </mat-card>
+  <a class="home-car-serach-offers_btn" href="" fxflex="20">קבלת הצעות</a>
+</div>
+
+
+<div class="mat-cardWrap">
+  <mat-card>
+    <h1>פרטי הרכב</h1>
+
+    <div>
+      <h2>אתר רכב לפי:</h2>
+      <app-radio-button-control></app-radio-button-control>
+    </div>
+
+    <div>
+      <h2>הזן מספר רכב</h2>
+    </div>
+
+    <div>
+      <a href="#" (click)="searchCar($event)" class="btn">איתור רכב</a>
+    </div>
+  </mat-card>
+</div>
+
+<div class="mat-cardWrap">
+  <mat-card>
+    <app-car-details></app-car-details>
+  </mat-card>
+</div>
