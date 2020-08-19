@@ -1,0 +1,23 @@
+.result-top { width: calc(95% - 80px); margin: auto; padding: 30px 40px; background-color: #f1f1f1; border: 1px solid #cfcfcf;}
+.result-title { display: inline-block; color: #03a9f4; }
+.perv-button { 
+    display:inline-block; 
+    height: 24px;
+    float: left;
+    line-height: 24px;
+    cursor: pointer;
+}
+.result-top-icon { float: left; }
+
+.results { width: 95%; margin: auto; }
+.results-row  { width:100%; display: flex; padding:10px; margin-bottom: 10px;}
+.result-cell  { min-width: 200px; padding: 10px;}
+
+.results-header { background-color: #f1f1f1;}
+.results-header-cell {  }
+
+.result-body {  }
+.results-body-row { background-color: #ffffff; border: 1px solid #cfcfcf; }
+.results-body-cell { color: gray; }
+
+.result-cell-total { color: #000000;}

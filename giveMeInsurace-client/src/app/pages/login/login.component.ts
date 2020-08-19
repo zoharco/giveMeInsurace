@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { LogRegService } from 'src/app/shared/services/log-reg.service';
 import { TokenService } from 'src/app/shared/services/token.service';
@@ -43,5 +43,6 @@ export class LoginComponent implements OnInit {
     handleError(error) {
         this.error = error.error.error;
     }
+
 
 }

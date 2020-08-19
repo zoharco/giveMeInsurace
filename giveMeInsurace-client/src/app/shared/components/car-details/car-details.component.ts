@@ -1,19 +1,21 @@
-import { Component, OnInit, AfterContentInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ICar } from '../../models/car.model';
+import { DetailsCarService } from '../../services/details-car.service';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-car-details',
     templateUrl: './car-details.component.html',
     styleUrls: ['./car-details.component.scss']
 })
-export class CarDetailsComponent implements OnInit, AfterContentInit {
-    @Input() carDetails:ICar;
+export class CarDetailsComponent implements OnInit, OnDestroy {
+    private carSubscription: Subscription;
+    private carDetails;
     carDetailsForm: FormGroup;
-    constructor(
-        private fb: FormBuilder,
-        
-        ) { }
+    @Input() showDetaild:boolean;
+    constructor(private fb: FormBuilder,
+                private commonHCD: DetailsCarService) { }
 
     ngOnInit(): void {
         this.carDetailsForm = this.fb.group({
@@ -27,42 +29,27 @@ export class CarDetailsComponent implements OnInit, AfterContentInit {
             ldw: [''],
             gear_type: ['']
         });
-        this.updateCarDetails();
+        this.carSubscription = this.commonHCD.notifyObservable.subscribe(car => 
+            this.updateCarDetails(car)
+        );
     }
-
-    ngAfterContentInit(){
-        
-    }
-    updateCarDetails(){
+    
+    updateCarDetails(car: ICar){
         this.carDetailsForm.patchValue({
-            "modelCode": "12345",
-            "year": "2020",
-            "description": "יונדאי I10",
-            "date": "01/01/2011",
-            "air_bags": "6",
-            
+            "modelCode": car.modelCode,
+            "year": car.year,
+            "description": car.description,
+            "road_ascent_date": car.road_ascent_date,
+            "air_bags": car.air_bags,
+            "gear_type": car.gear_type === 1 ? 'gear_type_1' : 'gear_type_0',
+            "esp": car.esp === 1 ? 'esp_1' : 'esp_0',
+            "fcw": car.fcw === 1 ? 'fcw_1' : 'fcw_0',
+            "ldw": car.ldw === 1 ? 'ldw_1' : 'ldw_0'
         });
     }
 
-    onSubmit() {
-
+    ngOnDestroy() {
+        this.carSubscription.unsubscribe();
     }
 }
-
-/*
-
-const updatedUserInfo = {
-  'name': 'Leonardo Giroto',
-  'email': 'leonardo@email.com',
-  'address': {
-    'zipCode': '22630-010',
-    'street': 'Avenida Lucio Costa',
-    'number': 9999
-  }
-};
-formGroup.setValue( updatedUserInfo );
-
-
-
-*/
 

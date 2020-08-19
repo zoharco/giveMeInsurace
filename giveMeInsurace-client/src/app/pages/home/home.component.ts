@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CarsService } from 'src/app/shared/services/cars.service';
-import { ICar } from 'src/app/shared/models/car.model';
+import { DetailsCarService } from 'src/app/shared/services/details-car.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -14,11 +14,12 @@ export class HomeComponent implements OnInit {
         2078012, 2078015, 2078013, 2079695, 2089204 
     */
     searchCarForm: FormGroup;
-    car: ICar;
-
+    carYear: number;
+    showDetaild: boolean = false;
 
     constructor(private fb: FormBuilder,
-        private carData: CarsService) { }
+                private detailCarService: DetailsCarService,
+                private router: Router) { }
 
     ngOnInit(): void {
         this.searchCarForm = this.fb.group({
@@ -28,7 +29,19 @@ export class HomeComponent implements OnInit {
 
     onSubmit($event) {
         const cardNumber = this.searchCarForm.value['carNumber'];
-        this.carData.getCar(cardNumber).subscribe(carD => this.car = carD);
+        this.detailCarService.getCar(cardNumber).subscribe(carD => {
+            this.carYear = carD['year'];
+            this.detailCarService.notifyCar(carD);
+            this.showDetaild = true;
+        });
+    }
+
+    showResult() {
+        if(!this.carYear){
+            alert('Please search for car then look for result');
+        } else{
+            this.router.navigateByUrl(`result/${this.carYear}`);
+        }
     }
 
 }

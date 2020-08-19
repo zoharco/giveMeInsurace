@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BeforeLoginService } from './shared/services/before-login.service';
 import { AfterLoginService } from './shared/services/after-login.service';
+import { ResultComponent } from './pages/result/result.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,11 @@ const routes: Routes = [
         component: HomeComponent,
         canActivate: [ AfterLoginService ]
     },
+    {
+        path: 'result/:year',
+        component: ResultComponent,
+        canActivate: [ AfterLoginService ]
+    }
 
 ];
 

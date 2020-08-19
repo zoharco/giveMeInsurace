@@ -9,6 +9,9 @@
           <label>שם מלא</label>
           <input matInput type="name" formControlName="name" name="name">
         </mat-form-field>
+        <div class="register-form-item-alert" *ngIf="name.invalid && (name.dirty || name.touched)">
+          נא להזין שם מלא.
+        </div>
       </div>
 
       <div class="register-form-item">
@@ -16,6 +19,14 @@
           <label>דוא"ל</label>
           <input matInput type="email" formControlName="email" name="email">
         </mat-form-field>
+        <div class="register-form-item-alert" *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.errors.required">
+            נא להזין דואר אלקטרוני.
+          </div>
+          <div *ngIf="email.errors.email">
+            משהו לא בסדר בכתובת הדוא"ל שלך. בבקשה נסה שוב.
+          </div>
+        </div>
       </div>
 
       <div class="register-form-item">
@@ -23,14 +34,34 @@
           <label>סיסמא</label>
           <input matInput type="password" formControlName="password" name="password">
         </mat-form-field>
+        <div class="register-form-item-alert" *ngIf="password.invalid && (password.dirty || password.touched)">
+          <div *ngIf="password.errors.required">
+            נא להזין סיסמא.
+          </div>
+          <div *ngIf="password.errors.minlength">
+            נא להזין סיסמא באורך של לפחות 8 תווים.
+          </div>
+        </div>
       </div>
 
       <div class="register-form-item">
         <mat-form-field>
           <label>אימות סיסמא</label>
-          <input matInput type="password" formControlName="password_confirmation" name="password_confirmation"
+          <input matInput type="password" appConfirmEqualValidator="password" formControlName="password_confirmation" name="password_confirmation"
             id="password_confirmation">
         </mat-form-field>
+        <div class="register-form-item-alert"
+          *ngIf="password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched)">
+          <div *ngIf="password_confirmation.errors.required">
+            נא להזין סיסמא.
+          </div>
+          <div *ngIf="password_confirmation.errors.minlength">
+            נא להזין סיסמא באורך של לפחות 8 תווים.
+          </div>
+          <div *ngIf="password_confirmation.errors.notEqual">
+            הסיסמא שהוזנה אינה תואמת לסיסמא שבשדה סיסמא
+          </div>
+        </div>
       </div>
 
 
@@ -65,14 +96,7 @@
           <label for="email" class="col-sm-3 col-form-label">Email</label>
           <div class="col-sm-9">
             <input type="email" class="form-control" formControlName="email" id="email">
-            <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
-              <div *ngIf="email.errors.required">
-                Please enter your email address.
-              </div>
-              <div *ngIf="email.errors.email">
-                Something's wrong with your email address. Please try again.
-              </div>
-            </div>
+            
           </div>
         </div>
 

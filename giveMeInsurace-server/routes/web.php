@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/api/car/{carNumber}', 'CarController@getCar');
+Route::get('/api/insurancePrices/{year}', 'InsurancePricesController@getInsurances');

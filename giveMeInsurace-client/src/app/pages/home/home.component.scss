@@ -6,9 +6,11 @@
     width: 180px; 
     font-size: 24px;
     text-decoration: none;
+    cursor: pointer;
     padding: 10px 30px;
     color: #ffffff;
-    background-color: #03a9f4;border-radius: 25px;
+    background-color: #03a9f4;
+    border-radius: 25px;
 }
 .home-car-serachOffersBtn-icon{ float: left; margin-top: 4px;}
 .mat-card_w1 { width: 100%; }
@@ -21,4 +23,5 @@
 .home-car-search-form-item-radioBtn { width:120px; }
 
 
-.home-car-search-form-item-btnSearch { color: #03a9f4; }
+.home-car-search-form-item-btnSearch {  margin-top:7px; color: #03a9f4; }
+.home-car-item-carDetails mat-card{min-height: 150px;}

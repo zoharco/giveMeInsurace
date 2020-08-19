@@ -1,9 +1,11 @@
 <div class="home-car-item home-car-serachOffersBtn-wrap">
   <mat-card class="home-car_emptyCard"></mat-card>
-  <a class="home-car-serachOffersBtn" href="">
+  <a class="home-car-serachOffersBtn" (click)="showResult()" >
+    <!-- routerLink="/result"  -->
     <span>
       קבלת הצעות
     </span>
+    
     <mat-icon class="home-car-serachOffersBtn-icon" aria-hidden="false" color="white" aria-label="Example thumbs up SVG icon">arrow_back</mat-icon>
     <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="25px" height="25px">
       <path d="M0 0h24v24H0z" fill="none" />
@@ -29,18 +31,20 @@
             </mat-form-field>
         </div>
         <div class="home-car-search-form-item">
-            <button Returns="home-car-search-form-item-btnSearch" mat-flat-button type="submit" class="btn">
-                <mat-icon class="home-car-search-form-item-btnSearch-icon" aria-hidden="false" color="" aria-label="Example thumbs up SVG icon">arrow_back</mat-icon>
+            <button class="home-car-search-form-item-btnSearch"  mat-flat-button type="submit">
+                <!-- <mat-icon class="home-car-search-form-item-btnSearch-icon" aria-hidden="false" color="" aria-label="Example thumbs up SVG icon">arrow_back</mat-icon> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+                    <path fill="#03a9f4" fill-rule="evenodd" d="M19.447 19.705c-.193.195-.446.293-.699.293-.253 0-.506-.098-.699-.293l-4.051-4.106c-1.431 1.139-3.165 1.789-5.013 1.789-2.184 0-4.238-.862-5.781-2.429C1.659 13.393.809 11.311.809 9.097c0-2.215.85-4.297 2.395-5.862 3.188-3.232 8.374-3.233 11.562 0 2.949 2.99 3.134 7.695.627 10.945l4.054 4.108c.386.391.386 1.026 0 1.417zM13.369 4.651c-1.209-1.225-2.798-1.838-4.385-1.838-1.587 0-3.175.613-4.383 1.838-1.172 1.188-1.816 2.767-1.816 4.446 0 1.679.644 3.258 1.816 4.446 1.171 1.187 2.727 1.841 4.383 1.841 1.652 0 3.204-.652 4.374-1.834l.007-.01.011-.007c2.409-2.451 2.407-6.433-.007-8.882z"/>
+                </svg>
                 איתור רכב
-
             </button>
         </div>
     </form>
   </mat-card>
 </div>
 
-<div class="home-car-item">
+<div class="home-car-item home-car-item-carDetails">
   <mat-card>
-    <app-car-details [carDetails]="car"></app-car-details>
+    <app-car-details [showDetaild]="showDetaild"></app-car-details>
   </mat-card>
 </div>

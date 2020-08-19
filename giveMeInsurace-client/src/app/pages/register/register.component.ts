@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LogRegService } from 'src/app/shared/services/log-reg.service';
 import { TokenService } from 'src/app/shared/services/token.service';

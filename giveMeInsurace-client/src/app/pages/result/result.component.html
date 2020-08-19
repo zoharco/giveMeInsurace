@@ -1,1 +1,29 @@
-<p>result works!</p>
+<div class="result-top">
+    <span class="result-title">סה"כ תוצאות - {{ totalResult }}</span>
+    <a (click)="navigateToPrevPage($event)" class="perv-button">
+        חזור למסך בקשה
+        <mat-icon class="result-top-icon" aria-hidden="false" color="white" aria-label="Example thumbs up SVG icon">arrow_back</mat-icon>
+    </a>
+</div>
+<div class="results">
+    <div class="results-row results-header">
+        <div class="result-cell results-header-cell">חברה</div>
+        <div class="result-cell results-header-cell">מסלול</div>
+        <div class="result-cell results-header-cell">מקיף</div>
+        <div class="result-cell results-header-cell">חובה</div>
+        <div class="result-cell results-header-cell">סה"כ</div>
+    </div>
+
+    <div class="result-body">
+        <div class="results-row results-body-row" *ngFor="let result of resultPrint">
+            <div class="result-cell results-body-cell">{{ result.company }}</div>
+            <div class="result-cell results-body-cell">{{ result.track }}</div>
+            <div class="result-cell results-body-cell">{{ result.comprehensive }} &#8362;</div>
+            <div class="result-cell results-body-cell">{{ result.compulsory }} &#8362;</div>
+            <div class="result-cell results-body-cell result-cell-total">{{ result.total }} &#8362;</div>
+        </div>
+        
+    </div>
+
+
+</div>
